@@ -1,0 +1,17 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  height: 90vh;
+}
+
+.table {
+  border: 1px solid grey;
+  padding: 0 1rem;
+  overflow: auto;
+}
+
+.view {
+  border: 1px solid grey;
+  padding: 0 1rem;
+}

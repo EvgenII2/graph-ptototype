@@ -1,0 +1,15 @@
+<h2 class="title">Таблица</h2>
+<div class="row">
+  <div>Название</div>
+  <div>Владеет акциями</div>
+</div>
+<div *ngFor="let bank of banks" class="row">
+  <div class="cell">{{ bank.name }}</div>
+  <div class="cell-share">
+    <div *ngFor="let shareholder of bank.shareholders" class="cell">
+      <div>
+        {{ shareholder.companyName }} - {{ shareholder.shareInProcent }}%
+      </div>
+    </div>
+  </div>
+</div>

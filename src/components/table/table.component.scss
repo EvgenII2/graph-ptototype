@@ -1,0 +1,15 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cell {
+  display: flex;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+}
