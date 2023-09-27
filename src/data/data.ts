@@ -49,10 +49,10 @@ banks.push(bankKiev);
 banks.push(bankLissabon);
 
 banks.forEach((bank) => {
-  const randomCount = Math.floor(Math.random() * banks.length) + 1;
+  const randomCount = Math.floor((Math.random() * banks.length) / 3) + 1;
 
   for (let i = 0; i < randomCount; i++) {
-    const randomBankId = Math.floor((Math.random() * banks.length));
+    const randomBankId = Math.floor(Math.random() * banks.length);
     const randomBank = banks[randomBankId];
     if (
       bank.id !== randomBank.id &&
@@ -73,7 +73,8 @@ banks.forEach((bank) => {
     connections.push({
       source: bank.id,
       target: id,
-      value: bank.shareholders.find(
+      value: 10,
+      percents: bank.shareholders.find(
         (findShareholder) => findShareholder.companyId === id
       ).shareInProcent,
     });

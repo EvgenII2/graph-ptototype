@@ -32,4 +32,5 @@ export interface Connection {
   source: string;
   target: string;
   value: number;
+  percents: number;
 }
