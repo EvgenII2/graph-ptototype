@@ -1,21 +1,40 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import * as d3 from 'd3';
+import * as svg from 'save-svg-as-png';
 
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss'],
 })
-export class ViewComponent implements OnInit {
+export class ViewComponent implements OnInit, AfterViewInit {
   svg: any;
 
   @Input() nodes;
   @Input() links;
 
+  @ViewChild('svgContainer') svgContainer: ElementRef;
+
+  width: number;
+  height: number;
+
   constructor() {}
 
   ngOnInit(): void {
     this.drawNodes();
+  }
+
+  ngAfterViewInit(): void {
+    this.width = this.svgContainer?.nativeElement.offsetWidth;
+    this.height = this.svgContainer?.nativeElement.offsetHeight;
+    console.log(this.width, this.height);
   }
 
   drawNodes() {
@@ -208,5 +227,16 @@ export class ViewComponent implements OnInit {
       event.subject.fx = null;
       event.subject.fy = null;
     }
+  }
+
+  savePDF() {
+    svg.saveSvgAsPng(document.getElementById('svgContainer'), 'graph.png', {
+      backgroundColor: '#fff',
+      left: -this.width / 2,
+      top: -this.height / 2,
+      width: this.width,
+      height: this.height,
+      scale: 2,
+    });
   }
 }
