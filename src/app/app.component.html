@@ -1,9 +1,13 @@
-<h1>Банки</h1>
-<div class="content">
+<h1 class="title">Инофрмация о владельцах кредитной организации</h1>
+<div class="content" id="content">
   <div class="table">
-    <app-table [banks]="bankNodes"></app-table>
+    <app-table [data]="banks"></app-table>
   </div>
   <div class="view">
-    <app-view [nodes]="bankNodes" [links]="bankLinks"></app-view>
+    <app-view
+      [nodes]="nodes"
+      [links]="links"
+      [nodesForSearch]="nodesForSearch"
+    ></app-view>
   </div>
 </div>

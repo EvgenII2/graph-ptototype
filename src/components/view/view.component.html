@@ -1,8 +1,28 @@
 <div>
   <h2 class="title">Визуальное представление</h2>
-  <button (click)="savePDF()">Сохранить PNG</button>
+  <button (click)="savePNG()">Сохранить PNG</button>
+  <button (click)="savePDF()">Сохранить PDF</button>
+  <button (click)="continieSimulation()">Продолжить</button>
+  <button (click)="stopSimulation()">Остановить</button>
+  <input
+    type="checkbox"
+    name="manualMode"
+    id="manualMode"
+    [(ngModel)]="manualMode"
+  />
+  <label for="manualMode">Перетаскивание вершин по одной</label>
+  <div>
+    <label>выбранная вершина</label>
+    <div>
+      <select [(ngModel)]="selectedNode" (change)="onChange()">
+        <option *ngFor="let x of nodes">
+          {{ x.name }}
+        </option>
+      </select>
+    </div>
+  </div>
 </div>
-<div #svgContainer>
+<div #svgContainer id="svgContainer1">
   <svg id="svgContainer">
     <g id="svg"></g>
   </svg>

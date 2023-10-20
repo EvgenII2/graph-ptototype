@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BankInfo } from 'src/models/models';
 
 @Component({
   selector: 'app-table',
@@ -7,9 +6,12 @@ import { BankInfo } from 'src/models/models';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  @Input() banks: BankInfo[];
+  @Input() data: any[];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.data);
+    
+  }
 }

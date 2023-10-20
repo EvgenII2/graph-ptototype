@@ -3,13 +3,15 @@
   <div>Название</div>
   <div>Владеет акциями</div>
 </div>
-<div *ngFor="let bank of banks" class="row">
-  <div class="cell">{{ bank.name }}</div>
-  <div class="cell-share">
-    <div *ngFor="let shareholder of bank.shareholders" class="cell">
-      <div>
-        {{ shareholder.companyName }} - {{ shareholder.shareInProcent }}%
+<div *ngFor="let item of data">
+  <ng-conteiner *ngIf="item.shareHolders && item.shareHolders.length > 0">
+    <div class="row">
+      <div class="cell">{{ item.bank.id }}</div>
+      <div class="cell-share">
+        <div *ngFor="let shareholder of item.shareHolders" class="cell">
+          <div>{{ shareholder.target.id }} - {{ shareholder.percent }}%</div>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-conteiner>
 </div>
